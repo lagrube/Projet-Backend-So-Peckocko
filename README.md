@@ -39,8 +39,8 @@ Le sujet du projet 6 du parcours Développeur web chez Openclassrooms porte sur 
 
 #### Instructions relatives à l'API
 
-* [Note de cadrage](Instructions/Cadrage.pdf)
-* [Guidelines](Instructions/Guidelines.pdf)
+* [Note de cadrage](https://s3.eu-west-1.amazonaws.com/course.oc-static.com/projects/DWJ_FR_P6/P6_Note%20de%20cadrage%20So%20Pekocko_V3.pdf)
+* [Guidelines](https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/DWJ_FR_P6/Guidelines+API.pdf)
 
 #### Contenus de ce repository
 
@@ -96,13 +96,5 @@ Si les packages sont déja installés, ces commandes suffisent à démarrer les 
 
 * Hébergement sur MongoDB Atlas
 * Toutes les opérations de la base de données utilisent le pack Mongoose avec des schémas de données stricts.
-
-***
-
-### 🚦 &nbsp; Les documents de présentation et livrables
-
-→ [Le lien vers le dépôt Git public contenant le code de l’API.](https://github.com/thierry-laval/so_pekocko)
-
-→ [Le lien vers le fichier pdf donné en tant que livrable.](https://drive.google.com/file/d/1XXAiwnn27O38xPH-HlFFoFYgR69VlH0f/view?usp=sharing)
 
 ***
