@@ -92,7 +92,7 @@ Si les packages sont déja installés, ces commandes suffisent à démarrer les 
 | Framework: Express       | Visual Studio Code |
 | Serveur: NodeJS          | Git/GitHub         |
 | Base de données: MongoDB | Mongoose           |
-| Javascript               | xXx                |
+| Javascript               |                    |
 
 * Hébergement sur MongoDB Atlas
 * Toutes les opérations de la base de données utilisent le pack Mongoose avec des schémas de données stricts.
