@@ -1,6 +1,6 @@
-# ![left 100%](https://github.com/thierry-laval/archives/blob/master/images/Logo_OpenClassrooms.png?raw=true) OpenClassrooms-Développeur Web
+# ![left 100%](https://fr.wikipedia.org/wiki/OpenClassrooms#/media/Fichier:Logo_OpenClassrooms.png) OpenClassrooms-Développeur Web
 
-_`Début de formation le 20/04/2020`_
+_`Début de formation le 14/10/2020`_
 
 ## Auteur
 
