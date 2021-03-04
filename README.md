@@ -82,13 +82,21 @@ Pour s'inscrire sur l'application, l'utilisateur doit fournir un email et un mot
 Utilisé dans ce projet:
 
 Technologies	et outils
+
 Framework: Express	Visual Studio Code
+
 Serveur: NodeJS	Git/GitHub
+
 Base de données: MongoDB	Mongoose
+
 Javascript
+
 Hébergement sur MongoDB Atlas
+
 Toutes les opérations de la base de données utilisent le pack Mongoose avec des schémas de données stricts.
 
 Les documents de présentation et livrables
+
 → Le lien vers le dépôt Git public contenant le code de l’API.
+
 → Le lien vers le fichier pdf donné en tant que livrable.
