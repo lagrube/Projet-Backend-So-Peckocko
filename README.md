@@ -107,6 +107,3 @@ Si les packages sont déja installés, ces commandes suffisent à démarrer les 
 → [Le lien vers le fichier pdf donné en tant que livrable.](https://drive.google.com/file/d/1XXAiwnn27O38xPH-HlFFoFYgR69VlH0f/view?usp=sharing)
 
 ***
-
-
-<p>&hearts; Love Markdown<p>
