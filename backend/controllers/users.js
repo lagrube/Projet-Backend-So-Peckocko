@@ -12,10 +12,19 @@ const jwt = require("jsonwebtoken");
 // Dotenv Route
 require("dotenv").config();
 
-// Middleware pour crée un nouvel utilisateur
+// Methode pour cacher des données (ici Email)
+const MaskData = require("maskdata");
+
+const emailMask2Options = {
+  maskWith: "*",
+  unmaskedStartCharactersBeforeAt: 3,
+  unmaskedEndCharactersAfterAt: 2,
+  maskAtTheRate: false,
+};
 
 // On sauvegarde un nouvel utilisateur et crypte son mot de passe avec un hash généré par bcrypt
 module.exports.signUp = (req, res, next) => {
+  const emailCrypt = req.body.email;
   // On appelle la méthode hash de bcrypt et on lui passe le mdp de l'utilisateur, le sale (10) ce sera le nombre de tours qu'on fait faire à l'algorithme
   bcrypt
     .hash(req.body.password, 10)
@@ -23,8 +32,9 @@ module.exports.signUp = (req, res, next) => {
     .then((hash) => {
       // Création du nouvel utilisateur avec le model mongoose
       const user = new User({
-        // On passe l'email qu'on trouve dans le corps de la requête
         email: req.body.email,
+        // On passe l'email qu'on trouve dans le corps de la requête
+        emailCrypt: MaskData.maskEmail2(emailCrypt, emailMask2Options),
         // On récupère le mdp hashé de bcrypt
         password: hash,
       });

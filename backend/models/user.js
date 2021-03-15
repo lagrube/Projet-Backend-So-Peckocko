@@ -21,6 +21,9 @@ const userSchema = mongoose.Schema({
     required: [true, "Veuillez entrer votre adresse email"],
     validate: [isEmail],
   },
+  emailCrypt: {
+    type: String,
+  },
   // enregistrement du mot de pass
   password: {
     type: String,
