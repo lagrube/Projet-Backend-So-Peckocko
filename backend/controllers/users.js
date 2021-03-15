@@ -8,12 +8,10 @@ const User = require("../models/user");
 
 // On utilise le package jsonwebtoken pour attribuer un token à un utilisateur au moment ou il se connecte
 const jwt = require("jsonwebtoken");
-
-// Dotenv Route
+// Import de la méthode dotenv qui nous permet de cacher des données avec le gitignore
 require("dotenv").config();
 
-// Methode pour cacher des données (ici Email)
-const MaskData = require("maskdata");
+const maskData = require("maskdata");
 
 const emailMask2Options = {
   maskWith: "*",
@@ -24,7 +22,7 @@ const emailMask2Options = {
 
 // On sauvegarde un nouvel utilisateur et crypte son mot de passe avec un hash généré par bcrypt
 module.exports.signUp = (req, res, next) => {
-  const emailCrypt = req.body.email;
+  const maskedEmail = req.body.email;
   // On appelle la méthode hash de bcrypt et on lui passe le mdp de l'utilisateur, le sale (10) ce sera le nombre de tours qu'on fait faire à l'algorithme
   bcrypt
     .hash(req.body.password, 10)
@@ -32,9 +30,10 @@ module.exports.signUp = (req, res, next) => {
     .then((hash) => {
       // Création du nouvel utilisateur avec le model mongoose
       const user = new User({
+        // On passe l'email qu'on trouve dans le corps de la requête
         email: req.body.email,
         // On passe l'email qu'on trouve dans le corps de la requête
-        emailCrypt: MaskData.maskEmail2(emailCrypt, emailMask2Options),
+        emailCrypt: maskData.maskEmail2(maskedEmail, emailMask2Options),
         // On récupère le mdp hashé de bcrypt
         password: hash,
       });
