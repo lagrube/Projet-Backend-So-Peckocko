@@ -9,11 +9,21 @@ const User = require("../models/user");
 // On utilise le package jsonwebtoken pour attribuer un token à un utilisateur au moment ou il se connecte
 const jwt = require("jsonwebtoken");
 
+// Dotenv Route
+require("dotenv").config();
+
+// const MaskData = require("./maskdata");
+// const emailMask2Options = {
+//   maskWith: "*",
+//   unmaskedStartCharactersBeforeAt: 3,
+//   unmaskedEndCharactersAfterAt: 2,
+//   maskAtTheRate: false,
+// };
 // Middleware pour crée un nouvel utilisateur
 
 // On sauvegarde un nouvel utilisateur et crypte son mot de passe avec un hash généré par bcrypt
 module.exports.signUp = (req, res, next) => {
-  // On appelle la méthode hash de bcrypt et on lui passe le mdp de l'utilisateur, le salte (10) ce sera le nombre de tours qu'on fait faire à l'algorithme
+  // On appelle la méthode hash de bcrypt et on lui passe le mdp de l'utilisateur, le sale (10) ce sera le nombre de tours qu'on fait faire à l'algorithme
   bcrypt
     .hash(req.body.password, 10)
     // On récupère le hash de mdp qu'on va enregister en tant que nouvel utilisateur dans la BBD mongoDB
@@ -21,7 +31,8 @@ module.exports.signUp = (req, res, next) => {
       // Création du nouvel utilisateur avec le model mongoose
       const user = new User({
         // On passe l'email qu'on trouve dans le corps de la requête
-        email: req.body.email,
+        email:
+          /* MaskData.maskEmail2(*/ req.body.email /* emailMask2Options), */,
         // On récupère le mdp hashé de bcrypt
         password: hash,
       });
@@ -62,7 +73,7 @@ module.exports.logIn = (req, res, next) => {
             // Encode un nouveau token avec une chaine de développement temporaire
             token: jwt.sign(
               { userId: user._id }, // Encodage de l'userdID nécéssaire dans le cas où une requête transmettrait un userId (ex: modification d'une sauce)
-              "RANDOM_TOKEN_SECRET", // Clé d'encodage du token qui peut être rendue plus complexe en production
+              process.env.JWT_TOKEN, // Clé d'encodage du token qui peut être rendue plus complexe en production
               { expiresIn: "24h" } // Argument de configuration avec une expiration au bout de 24h
               // On encode le userID pour la création de nouveaux objets, et cela permet d'appliquer le bon userID
               // aux objets et ne pas modifier les objets des autres
